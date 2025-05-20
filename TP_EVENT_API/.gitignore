@@ -1,0 +1,28 @@
+# 📦 Node modules
+node_modules/
+
+# 🧪 Logs
+logs/
+*.log
+npm-debug.log*
+
+# ⚙️ Environnement
+.env
+.env.local
+
+# 🗃️ Système
+.DS_Store
+Thumbs.db
+
+# 🚫 Build / Cache
+dist/
+build/
+.cache/
+.vscode/
+
+# 🧪 Coverage des tests
+coverage/
+
+# 🔒 fichiers secrets
+*.pem
+*.key
