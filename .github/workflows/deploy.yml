@@ -9,8 +9,8 @@ permissions:
   packages: write
 
 env:
-  GHCR_IMAGE_FRONTEND: ghcr.io/${{ github.repository_owner }}/eventapp_frontend
-  GHCR_IMAGE_BACKEND: ghcr.io/${{ github.repository_owner }}/eventapp_backend
+  GHCR_IMAGE_FRONTEND: ghcr.io/${{ github.repository_owner || tolower }}/eventapp_frontend
+  GHCR_IMAGE_BACKEND: ghcr.io/${{ github.repository_owner  || tolower }}/eventapp_backend
 
 jobs:
   build-and-deploy:
