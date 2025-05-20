@@ -49,6 +49,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
-            cd /home/debian/deploy
+            cd /home/romuald/deploy
             docker compose pull
             docker compose up -d
