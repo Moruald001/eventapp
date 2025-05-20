@@ -8,14 +8,6 @@ permissions:
   contents: read
   packages: write
 
-
-name: Set lowercase repository owner
-run: echo "GHCR_IMAGE_FRONTEND=ghcr.io/${OWNER,,}/eventapp_frontend" >> $GITHUB_ENV
-run: echo "GHCR_IMAGE_BACKEND=ghcr.io/${OWNER,,}/eventapp_backend" >> $GITHUB_ENV
-
-env:
-    OWNER: ${{ github.repository_owner }}
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -27,6 +19,11 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Convert repository owner to lowercase
+        id: prep
+        run: |
+          echo "OWNER_LC=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
+
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -36,13 +33,13 @@ jobs:
 
       - name: Build and Push Frontend
         run: |
-          docker build -t $GHCR_IMAGE_FRONTEND ./TP_EVENT_API
-          docker push $GHCR_IMAGE_FRONTEND
+          docker build -t ghcr.io/$OWNER_LC/eventapp_frontend ./TP_EVENT_API
+          docker push ghcr.io/$OWNER_LC/eventapp_frontend
 
       - name: Build and Push Backend
         run: |
-          docker build -t $GHCR_IMAGE_BACKEND ./TP_EVENT_WEB_APP
-          docker push $GHCR_IMAGE_BACKEND
+          docker build -t ghcr.io/$OWNER_LC/eventapp_backend ./TP_EVENT_WEB_APP
+          docker push ghcr.io/$OWNER_LC/eventapp_backend
 
       - name: Deploy on VPS via SSH
         uses: appleboy/ssh-action@v1.0.0
