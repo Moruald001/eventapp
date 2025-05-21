@@ -34,12 +34,8 @@ services:
     depends_on:
       - postgres
 
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: TOOR
-      POSTGRES_DB: eventDB
-      DB_HOST: postgres
-      DB_PORT: 5432
+    env_file:
+      - .env
 
     networks:
       - app-network
