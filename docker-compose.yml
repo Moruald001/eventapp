@@ -23,6 +23,8 @@ services:
 
     volumes:
       - ./TP_EVENT_WEB_APP:/app
+    networks:
+      - app-network
     restart: always
   backend:
     build: ./TP_EVENT_API
