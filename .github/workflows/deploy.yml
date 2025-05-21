@@ -34,12 +34,12 @@ jobs:
       - name: Build and Push Frontend
         run: |
           docker build -t ghcr.io/$OWNER_LC/eventapp_frontend ./TP_EVENT_API
-          docker push ghcr.io/$OWNER_LC/eventapp_frontend
+          docker push ghcr.io/$OWNER_LC/eventapp_backend
 
       - name: Build and Push Backend
         run: |
           docker build -t ghcr.io/$OWNER_LC/eventapp_backend ./TP_EVENT_WEB_APP
-          docker push ghcr.io/$OWNER_LC/eventapp_backend
+          docker push ghcr.io/$OWNER_LC/eventapp_frontend
 
       - name: Deploy on VPS via SSH
         uses: appleboy/ssh-action@v1.0.0
