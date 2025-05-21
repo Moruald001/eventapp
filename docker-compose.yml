@@ -10,6 +10,9 @@ services:
       - postgres-data:/var/lib/postgresql/data
       - ./dump.sql:/docker-entrypoint-initdb.d/eventDB.sql
 
+    networks:
+      - app-network
+
     restart: always
   frontend:
     build: ./TP_EVENT_WEB_APP
@@ -17,6 +20,7 @@ services:
       - "8083:3000"
     depends_on:
       - backend
+
     volumes:
       - ./TP_EVENT_WEB_APP:/app
     restart: always
@@ -30,6 +34,10 @@ services:
 
     env_file:
       - .env
+
+    networks:
+      - app-network
+
     restart: always
 
 volumes:
