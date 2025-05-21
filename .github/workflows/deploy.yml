@@ -33,12 +33,12 @@ jobs:
 
       - name: Build and Push Frontend
         run: |
-          docker build -t ghcr.io/$OWNER_LC/eventapp_frontend ./TP_EVENT_WEB_APP
+          docker build -t ghcr.io/$OWNER_LC/eventapp-frontend ./TP_EVENT_WEB_APP
           docker push ghcr.io/$OWNER_LC/eventapp-frontend
 
       - name: Build and Push Backend
         run: |
-          docker build -t ghcr.io/$OWNER_LC/eventapp_backend ./TP_EVENT_API
+          docker build -t ghcr.io/$OWNER_LC/eventapp-backend ./TP_EVENT_API
           docker push ghcr.io/$OWNER_LC/eventapp-backend
 
       - name: Deploy on VPS via SSH
