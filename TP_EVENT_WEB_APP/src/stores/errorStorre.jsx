@@ -2,6 +2,6 @@
 import { create } from "zustand";
 
 export const useErrorStore = create((set) => ({
-  erreur: {},
+  erreur: "",
   setErreur: (data) => set({ erreur: data }),
 }));
