@@ -17,7 +17,7 @@ export function InviteesAddForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const url = "http://localhost:5342";
+  const url = "http://157.180.38.74:5342";
 
   // methodes
 

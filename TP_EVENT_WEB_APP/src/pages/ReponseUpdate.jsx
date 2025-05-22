@@ -14,6 +14,7 @@ export function ResponseUpdate() {
   const { eventId, inviteeId } = useParams();
   const navigate = useNavigate();
   const { events } = useEventStore();
+  const url = "http://157.180.38.74:5342";
 
   // eslint-disable-next-line eqeqeq
   const eventOfID = events?.filter((event) => event.id == eventId);
@@ -31,16 +32,13 @@ export function ResponseUpdate() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const send = await fetch(
-        `http://localhost:5342/invitees/${invitee[0].id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(Response),
-        }
-      );
+      const send = await fetch(`${url}/invitees/${invitee[0].id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(Response),
+      });
 
       if (!send.ok) {
         throw new Error(

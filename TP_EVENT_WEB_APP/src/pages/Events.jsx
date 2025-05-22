@@ -7,10 +7,11 @@ import "../App.css";
 export function Events() {
   // states
   const { setEvents } = useEventStore();
+  const url = "http://157.180.38.74:5342";
 
   // methodes
   const dataFetcher = async () => {
-    const r = await fetch("http://localhost:5342/events");
+    const r = await fetch(`${url}/events`);
     if (!r.ok) {
       throw new Error("erreur lors de la recuperation des données");
     }
