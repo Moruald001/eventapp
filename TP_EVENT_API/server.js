@@ -7,14 +7,14 @@ const port = process.env.PORT || 3000;
 const Routes = require("./routes/eventRoutes");
 
 app.use(express.json());
-app.use(cors());
+
 app.use("/", Routes);
 
 sequelize
   .sync()
   .then(() => {
     console.log("La base de données a été synchronisée✅.");
-    app.listen(port, "0.0.0.0", () => {
+    app.listen(port, () => {
       console.log(`serveur demaré sur le port ${port}`);
     });
   })
