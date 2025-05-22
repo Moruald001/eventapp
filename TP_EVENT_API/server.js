@@ -8,7 +8,7 @@ const Routes = require("./routes/eventRoutes");
 const { corsOptions } = require("./config/cors");
 
 app.use(express.json());
-app.use(cors(corsOptions));
+app.use(cors());
 app.use("/", Routes);
 
 sequelize
