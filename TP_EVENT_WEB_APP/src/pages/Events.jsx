@@ -11,7 +11,7 @@ export function Events() {
 
   // methodes
   const dataFetcher = async () => {
-    const r = await fetch(`${url}/events`);
+    const r = await fetch(url + "/events");
     if (!r.ok) {
       throw new Error("erreur lors de la recuperation des données");
     }
