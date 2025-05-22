@@ -7,7 +7,6 @@ const port = process.env.PORT || 3000;
 const Routes = require("./routes/eventRoutes");
 
 app.use(express.json());
-
 app.use("/", Routes);
 
 sequelize

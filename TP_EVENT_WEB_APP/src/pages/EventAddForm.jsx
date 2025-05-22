@@ -18,7 +18,7 @@ export function EventAddForm() {
   const [success, setSuccess] = useState(false);
   const [erreur, setErreur] = useErrorStore("");
   const navigate = useNavigate();
-  const url = "http://157.180.38.74:50";
+  const url = "http://157.180.38.74:5342";
 
   //methodes
   const handleChange = (e) => {

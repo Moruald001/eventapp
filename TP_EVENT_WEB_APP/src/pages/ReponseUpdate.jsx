@@ -14,7 +14,7 @@ export function ResponseUpdate() {
   const { eventId, inviteeId } = useParams();
   const navigate = useNavigate();
   const { events } = useEventStore();
-  const url = "http://157.180.38.74:50";
+  const url = "http://157.180.38.74:5342";
 
   // eslint-disable-next-line eqeqeq
   const eventOfID = events?.filter((event) => event.id == eventId);

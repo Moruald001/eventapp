@@ -30,7 +30,7 @@ services:
     build: ./TP_EVENT_API
 
     ports:
-      - "50:3000"
+      - "5342:5342"
     depends_on:
       - postgres
 
