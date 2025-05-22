@@ -14,7 +14,7 @@ sequelize
   .sync()
   .then(() => {
     console.log("La base de données a été synchronisée✅.");
-    app.listen(port, () => {
+    app.listen(port, "0.0.0.0", () => {
       console.log(`serveur demaré sur le port ${port}`);
     });
   })

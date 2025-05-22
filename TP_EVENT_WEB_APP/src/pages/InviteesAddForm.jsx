@@ -17,6 +17,7 @@ export function InviteesAddForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const url = "http://localhost:5342";
 
   // methodes
 
@@ -36,7 +37,7 @@ export function InviteesAddForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5342/invitees", {
+      const response = await fetch(`${url}/invitees`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

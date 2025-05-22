@@ -18,6 +18,7 @@ export function EventAddForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const url = 'http://localhost:5342'
 
   //methodes
   const handleChange = (e) => {
@@ -31,7 +32,7 @@ export function EventAddForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5342/events", {
+      const response = await fetch(`${url}/events`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
