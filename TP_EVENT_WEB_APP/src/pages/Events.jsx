@@ -11,7 +11,7 @@ export function Events() {
 
   // methodes
   const dataFetcher = async () => {
-    const r = await fetch("http://157.180.38.74:5342");
+    const r = await fetch("http://157.180.38.74:5342/events");
     if (!r.ok) {
       throw new Error("erreur lors de la recuperation des données");
     }
