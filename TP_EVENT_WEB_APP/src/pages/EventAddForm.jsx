@@ -1,5 +1,6 @@
-import { useErrorStore } from "../stores/errorStorre";
-// import { useParams } from "react-router-dom";
+// import { useErrorStore } from "../stores/errorStorre";
+// import { useEventStore } from "../stores/eventStore";
+// import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/eventAddForm.css";
@@ -16,15 +17,12 @@ export function EventAddForm() {
   });
 
   const [success, setSuccess] = useState(false);
-  const [erreur, setErreur] = useErrorStore("");
+  const [erreur, setErreur] = useState("");
   const navigate = useNavigate();
   const url = "http://157.180.38.74:5342";
 
   //methodes
 
-  if (!Array.isArray(events)) {
-    return <p>Chargement ...</p>;
-  }
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prevData) => ({
@@ -109,7 +107,7 @@ export function EventAddForm() {
         Créer
       </button>
       {success && <p className="success">evenement ajouté avec succès✅</p>}
-      {/* {erreur && <p className="danger">{erreur}⚠️</p>} */}
+      {erreur.length != 0 && <p className="danger">{erreur}⚠️</p>}
     </form>
   );
 }
