@@ -18,7 +18,7 @@ export function EventAddForm() {
   const [success, setSuccess] = useState(false);
   const [erreur, setErreur] = useErrorStore("");
   const navigate = useNavigate();
-  const url = "http://157.180.38.74:5342";
+  const url = "http://157.180.38.74:50";
 
   //methodes
   const handleChange = (e) => {
@@ -105,7 +105,7 @@ export function EventAddForm() {
         Créer
       </button>
       {success && <p className="success">evenement ajouté avec succès✅</p>}
-      {erreur && <p className="danger">{erreur}⚠️</p>}
+      {/* {erreur && <p className="danger">{erreur}⚠️</p>} */}
     </form>
   );
 }

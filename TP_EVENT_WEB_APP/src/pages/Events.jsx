@@ -7,7 +7,7 @@ import "../App.css";
 export function Events() {
   // states
   const { setEvents } = useEventStore();
-  const url = "http://157.180.38.74:5342";
+  const url = "http://157.180.38.74:50";
 
   // methodes
   const dataFetcher = async () => {
