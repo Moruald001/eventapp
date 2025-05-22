@@ -21,6 +21,10 @@ export function EventAddForm() {
   const url = "http://157.180.38.74:5342";
 
   //methodes
+
+  if (!Array.isArray(events)) {
+    return <p>Chargement ...</p>;
+  }
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prevData) => ({
